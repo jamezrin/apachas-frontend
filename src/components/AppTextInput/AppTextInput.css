@@ -1,0 +1,28 @@
+.AppTextInput {
+    width: 100%;
+
+
+    --app-text-input-height: 40px;
+    height: var(--app-text-input-height);
+
+    display: flex;
+    flex-direction: row;
+
+    overflow: hidden;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+.AppTextInput__input {
+    flex-grow: 1;
+    background: var(--color-slate-light);
+    padding: 0 calc(var(--app-text-input-height) * 0.3);
+    font-size: calc(var(--app-text-input-height) * 0.65);
+    font-family: var(--brand-font);
+    border: 0;
+}
+
+.AppTextInput__actions {
+    display: flex;
+    flex-direction: row;
+}

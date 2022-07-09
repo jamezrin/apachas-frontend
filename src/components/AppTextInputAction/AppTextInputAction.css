@@ -1,0 +1,16 @@
+.AppTextInputAction {
+    background: var(--color-primary);
+    border: 0;
+
+    height: var(--app-text-input-height);
+    width: var(--app-text-input-height);
+
+    color: var(--color-white);
+
+    cursor: pointer;
+}
+
+.AppTextInputAction:disabled {
+    cursor: not-allowed;
+}
+

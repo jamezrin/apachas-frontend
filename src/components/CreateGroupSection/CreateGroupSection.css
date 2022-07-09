@@ -1,6 +1,4 @@
 .CreateGroupSection {
-    background: #fff;
-    border-radius: 12px;
     margin: 4rem;
     height: 85vh;
     min-width: 450px;
@@ -9,13 +7,28 @@
 .CreateGroupSection__wrapper {
     display: grid;
     place-items: center;
-    padding: 5rem;
+}
+
+@media (max-width: 800px) {
+    .CreateGroupSection__heading, .CreateGroupSection__actions {
+        width: 100%;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 12px;
+    }
 }
 
 @media (min-width: 800px) {
     .CreateGroupSection {
+        background: #fff;
+        border-radius: 12px;
+
         width: 80vw;
         height: 65vh;
+    }
+
+    .CreateGroupSection__wrapper {
+        padding: 8rem;
     }
 }
 
@@ -36,6 +49,7 @@
 }
 
 .CreateGroupSection__title, .CreateGroupSection__subtitle, .CreateGroupSection__actions__cta {
+    margin: 0;
     font-family: var(--brand-font);
     font-weight: normal;
     color: #000;
@@ -63,4 +77,10 @@
 
 .CreateGroupSection__actions__cta {
     font-size: 16px;
+    margin-bottom: 0.85rem;
+}
+
+.CreateGroupSection__actions__error {
+    color: var(--color-red);
+    font-size: 0.85rem;
 }

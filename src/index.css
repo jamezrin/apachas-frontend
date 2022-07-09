@@ -16,8 +16,9 @@ code {
   --color-primary: #10069f;
   --color-white: #fff;
   --color-black: #000;
-  --color-green: #84CC16;
-  --color-red: #DC2626;
+  --color-positive: #84CC16;
+  --color-negative: #DC2626;
+  --color-red: #b91c1c;
   --color-slate-hard: #E2E8F0;
   --color-slate-light: #F1F5F9;
   --brand-font: 'Montserrat', 'montserrat', 'Source Sans', 'Helvetica Neue', Helvetica, 'Arial Black', Arial, sans-serif;
