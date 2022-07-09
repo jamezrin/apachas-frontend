@@ -4,3 +4,90 @@
     display: grid;
     place-items: center;
 }
+
+.CreateGroupPage__section {
+    margin: 4rem;
+    height: 85vh;
+    min-width: 450px;
+}
+
+.CreateGroupPage__wrapper {
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 800px) {
+    .CreateGroupPage__heading, .CreateGroupPage__actions {
+        width: 100%;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 12px;
+    }
+}
+
+@media (min-width: 800px) {
+    .CreateGroupPage__section {
+        background: #fff;
+        border-radius: 12px;
+
+        width: 80vw;
+        height: 65vh;
+    }
+
+    .CreateGroupPage__wrapper {
+        padding: 8rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .CreateGroupPage__section {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1500px) {
+    .CreateGroupPage__section {
+        width: 40vw;
+    }
+}
+
+.CreateGroupPage__image {
+    width: 18rem;
+}
+
+.CreateGroupPage__title, .CreateGroupPage__subtitle, .CreateGroupPage__actions__cta {
+    margin: 0;
+    font-family: var(--brand-font);
+    font-weight: normal;
+    color: #000;
+}
+
+.CreateGroupPage__title {
+    color: var(--color-primary);
+    font-weight: normal;
+    font-size: 44px;
+}
+
+.CreateGroupPage__heading {
+    display: grid;
+    place-items: center;
+}
+
+.CreateGroupPage__subtitle {
+    text-align: center;
+    max-width: 90%;
+}
+
+.CreateGroupPage__actions {
+    margin-top: 8vh;
+}
+
+.CreateGroupPage__actions__cta {
+    font-size: 16px;
+    margin-bottom: 0.85rem;
+}
+
+.CreateGroupPage__actions__error {
+    color: var(--color-red);
+    font-size: 0.85rem;
+}
