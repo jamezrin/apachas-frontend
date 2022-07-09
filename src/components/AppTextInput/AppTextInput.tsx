@@ -4,10 +4,13 @@ import {
   createContext,
   DetailedHTMLProps,
   InputHTMLAttributes,
+  KeyboardEventHandler,
   PropsWithChildren,
 } from 'react';
 
-type AdditionalAppTextInputProps = {};
+type AdditionalAppTextInputProps = {
+  onPressEnter?: KeyboardEventHandler<HTMLInputElement>;
+};
 
 type AppTextInputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
@@ -20,11 +23,24 @@ export const AppTextInputContext = createContext<AppTextInputProps | undefined>(
 );
 
 const AppTextInput = (props: AppTextInputProps) => {
-  const { children, ...restProps } = props;
+  const { children, onPressEnter, onKeyDown, ...restProps } = props;
+
+  const handleOnKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (onKeyDown) onKeyDown(e);
+
+    if (onPressEnter && (e.code === 'Enter' || e.code === 'NumpadEnter')) {
+      onPressEnter(e);
+    }
+  };
+
   return (
     <AppTextInputContext.Provider value={props}>
       <div className="AppTextInput">
-        <input className="AppTextInput__input" {...restProps} />
+        <input
+          className="AppTextInput__input"
+          onKeyDown={handleOnKeyDown}
+          {...restProps}
+        />
         <div className="AppTextInput__actions">{children}</div>
       </div>
     </AppTextInputContext.Provider>

@@ -102,6 +102,7 @@ export function CreateGroupPage() {
               value={groupName || ''}
               onClick={handleGroupInputTouch}
               onChange={handleGroupNameChange}
+              onPressEnter={handleJoinGroupButton}
               size={10}
               disabled={groupInputDisabled}
               placeholder="Introduce el id del grupo"
