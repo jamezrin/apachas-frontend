@@ -51,7 +51,7 @@
 
 .CreateGroupPage__subtitle {
     text-align: center;
-    max-width: 90%;
+    max-width: 25ch;
 }
 
 .CreateGroupPage__actions {
@@ -66,4 +66,5 @@
 .CreateGroupPage__actions__error {
     color: var(--color-red);
     font-size: 0.85rem;
+    margin-bottom: 0;
 }
