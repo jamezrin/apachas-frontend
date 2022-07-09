@@ -6,49 +6,25 @@
 }
 
 .CreateGroupPage__section {
-    margin: 4rem;
-    height: 85vh;
-    min-width: 450px;
+
+}
+
+@media (max-width: 800px) {
+    .CreateGroupPage__section {
+        height: 85vh;
+    }
 }
 
 .CreateGroupPage__wrapper {
     display: grid;
     place-items: center;
+    margin: 1rem;
 }
 
-@media (max-width: 800px) {
-    .CreateGroupPage__heading, .CreateGroupPage__actions {
-        width: 100%;
-        padding: 1rem;
-        background: #fff;
-        border-radius: 12px;
-    }
-}
-
-@media (min-width: 800px) {
-    .CreateGroupPage__section {
-        background: #fff;
-        border-radius: 12px;
-
-        width: 80vw;
-        height: 65vh;
-    }
-
-    .CreateGroupPage__wrapper {
-        padding: 8rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .CreateGroupPage__section {
-        width: 70vw;
-    }
-}
-
-@media (min-width: 1500px) {
-    .CreateGroupPage__section {
-        width: 40vw;
-    }
+.CreateGroupPage__heading, .CreateGroupPage__actions {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
 }
 
 .CreateGroupPage__image {

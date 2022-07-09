@@ -27,8 +27,8 @@ const AppTextInputAction = ({
   return (
     <button
       className="AppTextInputAction"
-      {...restProps}
       disabled={textInputContext.disabled}
+      {...restProps}
     >
       <div className="AppTextInputAction__content">{children}</div>
     </button>

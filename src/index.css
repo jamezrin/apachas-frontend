@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+body, html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 :root {
   --color-primary: #10069f;
   --color-white: #fff;
