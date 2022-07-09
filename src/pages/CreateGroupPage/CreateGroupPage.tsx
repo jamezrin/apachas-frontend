@@ -9,13 +9,13 @@ import {
 import './CreateGroupPage.css';
 
 import enterIconSvg from '../../assets/enter-svgrepo-com.svg';
-import userAddIconSvg from '../../assets/user-add-svgrepo-com.svg';
+import createGroupSvg from '../../assets/create-group-svgrepo-com.svg';
 import coffeeWithFriendsSvg from '../../assets/undraw_coffee_with_friends_3cbj.svg';
 import { GroupContext } from '../../context/GroupContext';
 import { useNavigate } from 'react-router-dom';
-import { ApiError } from '../../types/ApiError';
+import { ApiError } from '../../types/api/ApiError';
 import delay from '../../utils/delay';
-import { Group } from '../../types/Group';
+import { ApiGroup } from '../../types/api/ApiGroup';
 import AppTextInputAction from '../../components/AppTextInputAction/AppTextInputAction';
 import AppTextInput from '../../components/AppTextInput/AppTextInput';
 
@@ -37,7 +37,7 @@ export function CreateGroupPage() {
     setErrorMessage(undefined);
   };
 
-  const goToGroup = (group: Group) => {
+  const goToGroup = (group: ApiGroup) => {
     setErrorMessage(undefined);
     setGroupInputDisabled(true);
     setGroupName(group.name);
@@ -108,10 +108,20 @@ export function CreateGroupPage() {
               placeholder="Introduce el id del grupo"
             >
               <AppTextInputAction onClick={handleJoinGroupButton}>
-                <img src={enterIconSvg} alt="Enter specified group button" />
+                <img
+                  src={enterIconSvg}
+                  alt="Enter specified group button"
+                  height="24px"
+                  width="24px"
+                />
               </AppTextInputAction>
               <AppTextInputAction onClick={handleCreateGroupButton}>
-                <img src={userAddIconSvg} alt="Create new group button" />
+                <img
+                  src={createGroupSvg}
+                  alt="Create new group button"
+                  height="24px"
+                  width="24px"
+                />
               </AppTextInputAction>
             </AppTextInput>
             {errorMessage && (

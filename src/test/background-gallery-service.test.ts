@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   CURATED_BACKGROUND_IDS,
   getBackgroundImageUrl,
-} from '../service/background-gallery';
+} from '../service/background-gallery-service';
 import fetch from 'node-fetch';
 
-describe('background gallery', () => {
+describe('background gallery service', () => {
   it('url is built correctly', async () => {
     const backgroundId = '2832468';
     const expectedUrl =

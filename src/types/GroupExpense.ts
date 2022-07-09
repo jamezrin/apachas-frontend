@@ -1,7 +1,6 @@
-export interface GroupExpense {
-  id: number;
-  amount: number;
-  description: string;
-  expenseDate: string;
-  createdAt: string;
+import { ApiGroupExpense } from './api/ApiGroupExpense';
+
+export interface GroupExpense extends ApiGroupExpense {
+  expenseAtDate: Date;
+  createdAtDate: Date;
 }
