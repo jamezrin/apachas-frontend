@@ -1,4 +1,4 @@
-const CURATED_BACKGROUNDS = {
+const CURATED_BACKGROUNDS_AND_EXTS = {
   '2798881': 'jpeg',
   '2832456': 'jpeg',
   '2832468': 'jpeg',
@@ -6,10 +6,25 @@ const CURATED_BACKGROUNDS = {
   '1103970': 'jpeg',
 } as const;
 
-export type Background = keyof typeof CURATED_BACKGROUNDS;
-export const CURATED_BACKGROUND_IDS = Object.keys(CURATED_BACKGROUNDS) as ReadonlyArray<Background>;
+export type Background = keyof typeof CURATED_BACKGROUNDS_AND_EXTS;
 
-export function getBackgroundImageUrl(background: Background): string {
-  const ext = CURATED_BACKGROUNDS[background];
+export const curatedBackgroundIds = Object.keys(
+  CURATED_BACKGROUNDS_AND_EXTS,
+) as ReadonlyArray<Background>;
+
+function getBackgroundImageUrl(background: Background): string {
+  const ext = CURATED_BACKGROUNDS_AND_EXTS[background];
   return `https://images.pexels.com/photos/${background}/pexels-photo-${background}.${ext}?cs=srgb`;
 }
+
+function getRandomBackgroundId(): Background {
+  return curatedBackgroundIds[
+    Math.floor(Math.random() * curatedBackgroundIds.length)
+  ];
+}
+
+export default {
+  getBackgroundImageUrl,
+  getRandomBackgroundId,
+  curatedBackgroundIds,
+};
