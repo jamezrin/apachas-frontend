@@ -40,7 +40,15 @@ export function RegisterExpensePage() {
   );
 
   const setDefaultState = () => {
-    setSelectedMemberId((prev) => prev || currentGroup?.friends[0].id!!);
+    setSelectedMemberId((prev) => {
+      if (prev) return prev;
+
+      if (currentGroup && currentGroup.friends.length >= 1) {
+        return currentGroup.friends[0].id;
+      }
+
+      return -1;
+    });
     setExpenseAmount(0);
     setExpenseAtDate('');
     setExpenseConcept('');
