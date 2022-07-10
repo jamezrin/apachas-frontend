@@ -18,6 +18,8 @@ import { ApiGroup } from '../../types/api_receive/ApiGroup';
 import AppCustomInputAction from '../../components/AppCustomInputAction/AppCustomInputAction';
 import AppCustomInput from '../../components/AppCustomInput/AppCustomInput';
 
+const groupNameRegex = /^[a-z]+-[a-z]+-\w{5}$/;
+
 export function CreateGroupPage() {
   const [groupName, setGroupName] = useState<string | undefined>(undefined);
   const [groupInputDisabled, setGroupInputDisabled] = useState<boolean>(false);
@@ -48,7 +50,7 @@ export function CreateGroupPage() {
   };
 
   const handleJoinGroupButton = () => {
-    if (!groupName || groupName.length < 8) {
+    if (!groupName || !groupNameRegex.test(groupName)) {
       setErrorMessage('Debes introducir el nombre de un grupo válido');
       return;
     }
@@ -57,8 +59,8 @@ export function CreateGroupPage() {
       .then((group) => {
         goToGroup(group);
       })
-      .catch((err: ApiError) => {
-        if (err?.type === 'GROUP_NOT_FOUND') {
+      .catch((response) => {
+        if (response.data.type === 'GROUP_NOT_FOUND') {
           setErrorMessage('No se ha podido encontrar un grupo con ese id');
         } else {
           setErrorMessage('Ha ocurrido un error desconocido, prueba más tarde');

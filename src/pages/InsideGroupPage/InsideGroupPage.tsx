@@ -26,15 +26,19 @@ export function InsideGroupPage() {
   const navigate = useNavigate();
 
   if (!currentGroup) {
-    loadGroup(groupName!!)
-      .then((_) => {})
-      .catch((err) => navigate('/'));
+    if (loadGroup && groupName) {
+      loadGroup(groupName)
+        .then((_) => {})
+        .catch((err) => navigate('/'));
+    }
+
     return null;
   }
 
   const flatExpenses = calculationService.getGroupFlatExpenses(currentGroup);
   const sortedFlatExpenses =
     calculationService.getSortedFlatExpenses(flatExpenses);
+
   const membersBalance = calculationService.getGroupMembersBalance(
     currentGroup,
     flatExpenses,

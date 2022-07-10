@@ -5,20 +5,20 @@ import { Group } from '../types/Group';
 import { Member } from '../types/Member';
 import { Expense } from '../types/Expense';
 
-const mapApiExpense = ({ ...apiGroupExpenseRest }: ApiExpense): Expense => ({
-  ...apiGroupExpenseRest,
-  createdAtDate: new Date(apiGroupExpenseRest.createdAt),
-  expenseAtDate: new Date(apiGroupExpenseRest.expenseAt),
+const mapApiExpense = ({ ...apiExpenseRest }: ApiExpense): Expense => ({
+  ...apiExpenseRest,
+  createdAtDate: new Date(apiExpenseRest.createdAt),
+  expenseAtDate: new Date(apiExpenseRest.expenseAt),
 });
 
 const mapApiMember = ({
   expenses: apiExpenses,
-  ...apiGroupMemberRest
+  ...apiMemberRest
 }: ApiMember): Member => {
   return {
-    ...apiGroupMemberRest,
+    ...apiMemberRest,
     expenses: apiExpenses.map(mapApiExpense),
-    createdAtDate: new Date(apiGroupMemberRest.createdAt),
+    createdAtDate: new Date(apiMemberRest.createdAt),
   };
 };
 

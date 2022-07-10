@@ -42,9 +42,12 @@ export function CreateFriendPage() {
   useEffect(() => setDefaultState(), [currentGroup]);
 
   if (!currentGroup) {
-    loadGroup(groupName!!)
-      .then((_) => {})
-      .catch((err) => navigate('/'));
+    if (loadGroup && groupName) {
+      loadGroup(groupName)
+        .then((_) => {})
+        .catch((err) => navigate('/'));
+    }
+
     return null;
   }
 
