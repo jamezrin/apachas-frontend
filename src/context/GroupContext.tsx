@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import apiService from '../service/api-request-service';
-import createGroupPage from '../pages/CreateGroupPage/CreateGroupPage';
 import { Group } from '../types/Group';
 
 export type GroupContextState = {

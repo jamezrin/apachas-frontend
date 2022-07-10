@@ -1,6 +1,5 @@
 import apiMapperService from './api-mapper-service';
 import { Group } from '../types/Group';
-import { ApiGroup } from '../types/api_receive/ApiGroup';
 import { CreateExpenseBody } from '../types/api_send/CreateExpenseBody';
 import { CreateMemberBody } from '../types/api_send/CreateMemberBody';
 

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import InsideGroupPage from './pages/InsideGroupPage/InsideGroupPage';
 import CreateGroupPage from './pages/CreateGroupPage/CreateGroupPage';

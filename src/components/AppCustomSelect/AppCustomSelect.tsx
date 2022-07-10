@@ -2,7 +2,6 @@ import './AppCustomSelect.css';
 import {
   DetailedHTMLProps,
   OptionHTMLAttributes,
-  PropsWithChildren,
   SelectHTMLAttributes,
 } from 'react';
 

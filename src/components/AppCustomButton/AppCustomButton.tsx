@@ -1,10 +1,5 @@
 import './AppCustomButton.css';
-import {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  PropsWithChildren,
-  useContext,
-} from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 type CustomAppCustomButtonProps = {};
 

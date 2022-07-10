@@ -1,9 +1,6 @@
 import {
   ChangeEventHandler,
   Dispatch,
-  FormEventHandler,
-  MouseEventHandler,
-  PropsWithChildren,
   SetStateAction,
   useContext,
   useEffect,
@@ -11,24 +8,12 @@ import {
 } from 'react';
 
 import './RegisterExpensePage.css';
-
-import enterIconSvg from '../../assets/enter-svgrepo-com.svg';
-import createGroupSvg from '../../assets/create-group-svgrepo-com.svg';
-import coffeeWithFriendsSvg from '../../assets/undraw_coffee_with_friends_3cbj.svg';
 import { GroupContext } from '../../context/GroupContext';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ApiError } from '../../types/api_receive/ApiError';
-import delay from '../../utils/delay';
-import { ApiGroup } from '../../types/api_receive/ApiGroup';
-import AppCustomInputAction from '../../components/AppCustomInputAction/AppCustomInputAction';
 import AppCustomInput from '../../components/AppCustomInput/AppCustomInput';
 import AppCustomButton from '../../components/AppCustomButton/AppCustomButton';
-import paymentSvg from '../../assets/payment-method-svgrepo-com.svg';
-import emptyCartSvg from '../../assets/undraw_empty_cart_co35.svg';
 import addSvg from '../../assets/add-svgrepo-com.svg';
-import voidSvg from '../../assets/undraw_void_-3-ggu.svg';
 import backSvg from '../../assets/back-svgrepo-com.svg';
-import calculatorSvg from '../../assets/calculator-svgrepo-com.svg';
 import { InsideGroupPageParams } from '../InsideGroupPage/InsideGroupPage';
 import AppCustomSelect, {
   AppSelectOption,

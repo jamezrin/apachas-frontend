@@ -1,5 +1,3 @@
-import { ApiGroup } from '../types/api_receive/ApiGroup';
-import { ApiExpense } from '../types/api_receive/ApiExpense';
 import { Group } from '../types/Group';
 import { Expense } from '../types/Expense';
 import { FlatMemberExpense } from '../types/derived/FlatMemberExpense';
