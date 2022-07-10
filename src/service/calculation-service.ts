@@ -3,6 +3,7 @@ import { Expense } from '../types/Expense';
 import { FlatMemberExpense } from '../types/derived/FlatMemberExpense';
 import { MemberBalance } from '../types/derived/MemberBalance';
 import { Member } from '../types/Member';
+import { PaymentSuggestion } from '../types/derived/PaymentSuggestion';
 
 function getMemberFlatExpenses(member: Member): FlatMemberExpense[] {
   return member.expenses.map((expense) => ({
@@ -40,10 +41,34 @@ function getGroupMembersBalance(
   }));
 }
 
+function getPaymentSuggestions(
+  memberBalances: MemberBalance[],
+): PaymentSuggestion[] {
+  const positiveBalances: MemberBalance[] = [],
+    negativeBalances: MemberBalance[] = [];
+
+  memberBalances
+    .map((balance): MemberBalance => ({ ...balance })) // clone the balance objects
+    .sort((a, b) => b.balance - a.balance)
+    .forEach((memberBalance) => {
+      if (memberBalance.balance > 0) {
+        positiveBalances.push(memberBalance);
+      } else if (memberBalance.balance < 0) {
+        negativeBalances.unshift(memberBalance);
+      }
+    });
+
+  const paymentSuggestions: PaymentSuggestion[] = [];
+  negativeBalances.forEach((negativeBalance) => {});
+
+  return paymentSuggestions;
+}
+
 export default {
   getGroupFlatExpenses,
   getMemberFlatExpenses,
   getSortedFlatExpenses,
   getExpenseTotal,
   getGroupMembersBalance,
+  getPaymentSuggestions,
 };

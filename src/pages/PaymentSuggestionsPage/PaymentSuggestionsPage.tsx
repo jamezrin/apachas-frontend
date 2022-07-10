@@ -27,34 +27,12 @@ export function PaymentSuggestionsPage() {
   const { currentGroup, loadGroup, reloadGroup } = useContext(GroupContext);
   const navigate = useNavigate();
 
-  const [friendName, setFriendName] = useState<string>('');
-
-  const canAddFriend = !!friendName;
-
-  const setDefaultState = () => {
-    setFriendName('');
-  };
-
-  const createMemberBody: CreateMemberBody = {
-    name: friendName,
-  };
-
-  useEffect(() => setDefaultState(), [currentGroup]);
-
   if (!currentGroup) {
     loadGroup(groupName!!)
       .then((_) => {})
       .catch((err) => navigate('/'));
     return null;
   }
-
-  const handleMemberAddClick = async () => {
-    await apiRequestService.createMember(groupName!!, createMemberBody);
-
-    await reloadGroup();
-
-    handleGoBackClick();
-  };
 
   const handleGoBackClick = () => navigate(`/${groupName}`);
 
@@ -65,18 +43,18 @@ export function PaymentSuggestionsPage() {
           <section className="PaymentSuggestionsPage__register-expense-container">
             <div className="PaymentSuggestionsPage__section-heading">
               <h1 className="PaymentSuggestionsPage__section-title">
-                Añadir amigo
+                Sugerencias de pago
               </h1>
             </div>
             <div className="PaymentSuggestionsPage__section-body">
-              <div className="PaymentSuggestionsPage__field-wrapper">
-                <p>Nombre</p>
-                <AppCustomInput
-                  type="text"
-                  value={friendName || ''}
-                  onChange={handleInputValue(setFriendName)}
-                />
-              </div>
+              {['hola', 'adios'].map((thing, idx) => (
+                <div
+                  className="PaymentSuggestionsPage__payment-suggestion"
+                  key={idx}
+                >
+                  {thing}
+                </div>
+              ))}
             </div>
           </section>
         </div>
@@ -97,25 +75,6 @@ export function PaymentSuggestionsPage() {
               width="20px"
             />
             Volver atrás
-          </AppCustomButton>
-
-          <AppCustomButton
-            onClick={handleMemberAddClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
-            disabled={!canAddFriend}
-          >
-            <img
-              src={addSvg}
-              alt="Icon indicating the button to add the friend"
-              height="20px"
-              width="20px"
-            />
-            Añadir
           </AppCustomButton>
         </div>
       </div>

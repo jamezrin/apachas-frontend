@@ -88,3 +88,16 @@
 .PaymentSuggestionsPage__field-wrapper .AppCustomSelect {
     flex-grow: 1;
 }
+
+.PaymentSuggestionsPage__payment-suggestion {
+    padding: 1rem;
+    background: var(--color-slate-light);
+}
+
+.PaymentSuggestionsPage__payment-suggestion__person {
+
+}
+
+.PaymentSuggestionsPage__payment-suggestion__amount {
+
+}
