@@ -127,16 +127,9 @@ export function InsideGroupPage() {
               {membersBalance.map((memberBalance, idx) => (
                 <div
                   key={idx}
-                  className="InsideGroupPage__member-balance"
-                  style={{
-                    ...({
-                      '--member-balance-color': `var(--${
-                        memberBalance.balance >= 0
-                          ? 'color-positive'
-                          : 'color-negative'
-                      })`,
-                    } as any),
-                  }}
+                  className={`InsideGroupPage__member-balance InsideGroupPage__member-balance--${
+                    memberBalance.balance >= 0 ? 'positive' : 'negative'
+                  }`}
                 >
                   <span>{memberBalance.member.name}</span>
                   <span>
@@ -154,12 +147,7 @@ export function InsideGroupPage() {
         <div className="InsideGroupPage__actions">
           <AppCustomButton
             onClick={handleExitGroupClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
           >
             <img
               src={backSvg}
@@ -171,12 +159,7 @@ export function InsideGroupPage() {
           </AppCustomButton>
           <AppCustomButton
             onClick={handlePaymentSuggestionsClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
           >
             <img
               src={calculatorSvg}

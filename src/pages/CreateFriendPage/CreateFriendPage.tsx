@@ -81,12 +81,7 @@ export function CreateFriendPage() {
         <div className="CreateFriendPage__actions">
           <AppCustomButton
             onClick={handleGoBackClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
           >
             <img
               src={backSvg}
@@ -99,12 +94,7 @@ export function CreateFriendPage() {
 
           <AppCustomButton
             onClick={handleMemberAddClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
             disabled={!canAddFriend}
           >
             <img

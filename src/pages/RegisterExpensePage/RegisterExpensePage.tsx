@@ -133,12 +133,7 @@ export function RegisterExpensePage() {
         <div className="RegisterPaymentPage__actions">
           <AppCustomButton
             onClick={handleGoBackClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
           >
             <img
               src={backSvg}
@@ -151,12 +146,7 @@ export function RegisterExpensePage() {
 
           <AppCustomButton
             onClick={handleExpenseAddClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
             disabled={!canAddExpense}
           >
             <img

@@ -89,12 +89,7 @@ export function PaymentSuggestionsPage() {
         <div className="PaymentSuggestionsPage__actions">
           <AppCustomButton
             onClick={handleGoBackClick}
-            style={{
-              fontSize: '18px',
-              ...{
-                '--app-button-height': '40px',
-              },
-            }}
+            className="AppCustomButton AppCustomButton--lg"
           >
             <img
               src={backSvg}

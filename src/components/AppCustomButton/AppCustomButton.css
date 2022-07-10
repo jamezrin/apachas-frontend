@@ -1,13 +1,12 @@
-:root {
-    --app-button-height: 30px;
-}
-
 .AppCustomButton {
     background: var(--color-primary);
 
     display: flex;
     align-items: center;
     gap: 12px;
+
+    --app-button-height: 30px;
+    font-size: calc(var(--app-button-height) * 0.45);
 
     border: 0;
     border-radius: 4px;
@@ -16,6 +15,10 @@
     color: var(--color-white);
 
     cursor: pointer;
+}
+
+.AppCustomButton--lg {
+    --app-button-height: 40px;
 }
 
 .AppCustomButton:disabled {
