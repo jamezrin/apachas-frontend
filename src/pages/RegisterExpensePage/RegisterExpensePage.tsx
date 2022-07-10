@@ -19,6 +19,8 @@ import AppCustomSelect, {
   AppSelectOption,
 } from '../../components/AppCustomSelect/AppCustomSelect';
 import apiRequestService from '../../service/api-request-service';
+import { CreateExpenseBody } from '../../types/api_send/CreateExpenseBody';
+import handleInputValue from '../../utils/handleInputValue';
 
 export function RegisterExpensePage() {
   const { groupName } = useParams<InsideGroupPageParams>();
@@ -44,19 +46,13 @@ export function RegisterExpensePage() {
     setExpenseConcept('');
   };
 
-  const createExpenseBody = {
+  const createExpenseBody: CreateExpenseBody = {
     expenseAt: expenseAtDate,
     amount: expenseAmount,
     description: expenseConcept,
   };
 
   useEffect(() => setDefaultState(), [currentGroup]);
-
-  const handleInputValue = (
-    setter: Dispatch<SetStateAction<any>>,
-  ): ChangeEventHandler<any> => {
-    return (e) => setter(e.target.value);
-  };
 
   if (!currentGroup) {
     loadGroup(groupName!!)

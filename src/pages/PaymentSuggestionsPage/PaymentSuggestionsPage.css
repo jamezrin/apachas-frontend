@@ -2,15 +2,89 @@
     height: 100vh;
 
     display: grid;
-
 }
 
 .PaymentSuggestionsPage__container {
-    margin: 1rem;
+    margin: 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.PaymentSuggestionsPage__content {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.PaymentSuggestionsPage__content > * {
+    display: flex;
+    flex-direction: column;
+}
+
+.PaymentSuggestionsPage__actions {
+    margin-top: 2rem;
+    align-self: center;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .PaymentSuggestionsPage__actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 800px) {
-    .PaymentSuggestionsPage {
-        place-items: center;
+    .PaymentSuggestionsPage__container {
+        background: none;
+        padding: 0;
     }
+
+    .PaymentSuggestionsPage__content {
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+.PaymentSuggestionsPage__container {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.PaymentSuggestionsPage__section-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.PaymentSuggestionsPage__section-title {
+    font-family: var(--brand-font);
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 24px;
+}
+
+.PaymentSuggestionsPage__section-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.PaymentSuggestionsPage__field-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.PaymentSuggestionsPage__field-wrapper + .PaymentSuggestionsPage__field-wrapper {
+    margin-top: 1rem;
+}
+
+.PaymentSuggestionsPage__field-wrapper .AppCustomSelect {
+    flex-grow: 1;
 }

@@ -131,7 +131,7 @@ export function InsideGroupPage() {
                   style={{
                     ...({
                       '--member-balance-color': `var(--${
-                        memberBalance.balance > 0
+                        memberBalance.balance >= 0
                           ? 'color-positive'
                           : 'color-negative'
                       })`,

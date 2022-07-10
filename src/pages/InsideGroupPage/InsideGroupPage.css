@@ -44,6 +44,10 @@
         border-radius: 12px;
     }
 
+    .InsideGroupPage__content {
+        gap: 1rem;
+    }
+
     .InsideGroupPage__actions {
         flex-direction: column-reverse;
         gap: 1rem;
