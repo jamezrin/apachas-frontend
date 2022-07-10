@@ -1,0 +1,16 @@
+.CreateFriendPage {
+    height: 100vh;
+
+    display: grid;
+
+}
+
+.CreateFriendPage__container {
+    margin: 1rem;
+}
+
+@media (min-width: 800px) {
+    .CreateFriendPage {
+        place-items: center;
+    }
+}

@@ -1,0 +1,25 @@
+:root {
+    --app-button-height: 30px;
+}
+
+.AppButton {
+    background: var(--color-primary);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border: 0;
+    border-radius: 4px;
+    padding: calc(var(--app-button-height) * 0.215) calc(var(--app-button-height) * 0.475);
+
+    color: var(--color-white);
+
+    cursor: pointer;
+}
+
+.AppButton:disabled {
+    cursor: not-allowed;
+}
+
+

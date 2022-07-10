@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ApiGroup } from '../types/api/ApiGroup';
-import apiService from '../service/api-service';
+import apiService from '../service/api-request-service';
 import createGroupPage from '../pages/CreateGroupPage/CreateGroupPage';
+import { Group } from '../types/Group';
 
 export type GroupContextState = {
-  currentGroup?: ApiGroup;
-  loadGroup: (name: string) => Promise<ApiGroup>;
-  createNewGroup: () => Promise<ApiGroup>;
-  reloadGroup: () => Promise<ApiGroup>;
+  currentGroup?: Group;
+  loadGroup: (name: string) => Promise<Group>;
+  createNewGroup: () => Promise<Group>;
+  reloadGroup: () => Promise<Group>;
 };
 
 const notReadyStub = () => {
@@ -24,9 +24,9 @@ export const GroupContext = React.createContext<GroupContextState>({
 export const GroupContextProvider: React.FC<React.PropsWithChildren<any>> = ({
   children,
 }) => {
-  const [currentGroup, setCurrentGroup] = useState<ApiGroup>();
+  const [currentGroup, setCurrentGroup] = useState<Group>();
 
-  const loadGroup = async (name: string): Promise<ApiGroup> => {
+  const loadGroup = async (name: string): Promise<Group> => {
     const group = await apiService.fetchGroupByName(name);
 
     if (group) {
@@ -36,14 +36,14 @@ export const GroupContextProvider: React.FC<React.PropsWithChildren<any>> = ({
     return group;
   };
 
-  const reloadGroup = async (): Promise<ApiGroup> => {
+  const reloadGroup = async (): Promise<Group> => {
     if (!currentGroup)
       throw new Error('Cannot reload group with no group loaded');
 
     return await apiService.fetchGroupByName(currentGroup.name);
   };
 
-  const createNewGroup = async (): Promise<ApiGroup> => {
+  const createNewGroup = async (): Promise<Group> => {
     const group = await apiService.createNewGroup();
 
     if (group) {

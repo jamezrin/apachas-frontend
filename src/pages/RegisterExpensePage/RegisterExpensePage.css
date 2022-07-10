@@ -1,0 +1,16 @@
+.RegisterPaymentPage {
+    height: 100vh;
+
+    display: grid;
+
+}
+
+.RegisterPaymentPage__container {
+    margin: 1rem;
+}
+
+@media (min-width: 800px) {
+    .RegisterPaymentPage {
+        place-items: center;
+    }
+}

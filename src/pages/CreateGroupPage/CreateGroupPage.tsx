@@ -79,8 +79,8 @@ export function CreateGroupPage() {
 
   return (
     <div className="CreateGroupPage">
-      <section className="CreateGroupPage__container">
-        <div className="CreateGroupPage__heading">
+      <div className="CreateGroupPage__container">
+        <section className="CreateGroupPage__heading">
           <h1 className="CreateGroupPage__title">¡A pachas!</h1>
           <img
             src={coffeeWithFriendsSvg}
@@ -92,8 +92,8 @@ export function CreateGroupPage() {
             <br />
             ¡Esta aplicación lo hace por ti!
           </h2>
-        </div>
-        <div className="CreateGroupPage__actions">
+        </section>
+        <section className="CreateGroupPage__actions">
           <h3 className="CreateGroupPage__actions__cta">
             Introduce el código del grupo. Si no tienes uno, genera uno nuevo
           </h3>
@@ -126,8 +126,8 @@ export function CreateGroupPage() {
           {errorMessage && (
             <p className="CreateGroupPage__actions__error">{errorMessage}</p>
           )}
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

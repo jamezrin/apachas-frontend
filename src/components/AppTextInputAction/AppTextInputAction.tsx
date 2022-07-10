@@ -7,6 +7,7 @@ import {
   useContext,
 } from 'react';
 import { AppTextInputContext } from '../AppTextInput/AppTextInput';
+import AppButton from '../AppButton/AppButton';
 
 type CustomAppTextInputActionProps = {};
 
@@ -25,13 +26,11 @@ const AppTextInputAction = ({
   if (!textInputContext) throw new Error('Not in AppTextInputContext');
 
   return (
-    <button
-      className="AppTextInputAction"
-      disabled={textInputContext.disabled}
-      {...restProps}
-    >
-      <div className="AppTextInputAction__content">{children}</div>
-    </button>
+    <span className="AppTextInputAction">
+      <AppButton disabled={textInputContext.disabled} {...restProps}>
+        <div className="AppTextInputAction__content">{children}</div>
+      </AppButton>
+    </span>
   );
 };
 

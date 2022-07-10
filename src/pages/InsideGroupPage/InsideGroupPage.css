@@ -1,10 +1,123 @@
+:root {
+    --member-balance-color: #000;
+}
+
 .InsideGroupPage {
     height: 100vh;
 
     display: grid;
-    place-items: center;
 }
 
 .InsideGroupPage__container {
+    margin: 2rem;
 
+    display: flex;
+    flex-direction: column;
+}
+
+.InsideGroupPage__content {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.InsideGroupPage__content > * {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.InsideGroupPage__actions {
+    margin-top: 2rem;
+    align-self: center;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .InsideGroupPage__container {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .InsideGroupPage__actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .InsideGroupPage__container {
+        background: none;
+        padding: 0;
+    }
+
+    .InsideGroupPage__content {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .InsideGroupPage__content > * {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem
+    }
+}
+
+.InsideGroupPage__section-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.InsideGroupPage__section-title {
+    font-family: var(--brand-font);
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 24px;
+}
+
+.InsideGroupPage__member-balance {
+    background: var(--member-balance-color);
+    font-family: var(--brand-font);
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.InsideGroupPage__expense {
+    padding: 0.75rem;
+    background: var(--color-slate-light);
+
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.InsideGroupPage__expense:hover {
+    background: var(--color-slate-hard)
+}
+
+.InsideGroupPage__expense__amount {
+    font-size: 20px;
+    text-align: right;
+    color: var(--color-green);
+}
+
+.InsideGroupPage__section--empty {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 40px;
 }
