@@ -92,12 +92,43 @@
 .PaymentSuggestionsPage__payment-suggestion {
     padding: 1rem;
     background: var(--color-slate-light);
+    display: flex;
+    align-items: center;
 }
 
-.PaymentSuggestionsPage__payment-suggestion__person {
+.PaymentSuggestionsPage__payment-suggestion__part {
+    background: #fff;
+    margin: 0;
+    border-radius: 8px;
+    width: 20ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0.25rem 0.65rem;
+}
 
+.PaymentSuggestionsPage__payment-suggestion__part--from {
+    color: var(--color-negative);
+}
+
+.PaymentSuggestionsPage__payment-suggestion__part--to {
+    color: var(--color-positive);
+}
+
+.PaymentSuggestionsPage__payment-suggestion__transfer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .PaymentSuggestionsPage__payment-suggestion__amount {
-
+    color: var(--color-green);
+    background: #fff;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    padding: 0.25rem 0.65rem;
+    z-index: 1;
+    font-weight: bold;
+    position: absolute;
 }

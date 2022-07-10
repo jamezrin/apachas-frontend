@@ -14,6 +14,7 @@ import AppCustomInput from '../../components/AppCustomInput/AppCustomInput';
 import AppCustomButton from '../../components/AppCustomButton/AppCustomButton';
 import addSvg from '../../assets/add-svgrepo-com.svg';
 import backSvg from '../../assets/back-svgrepo-com.svg';
+import customTransferArrowSvg from '../../assets/custom-transfer-arrow.svg';
 import { InsideGroupPageParams } from '../InsideGroupPage/InsideGroupPage';
 import AppCustomSelect, {
   AppSelectOption,
@@ -21,6 +22,7 @@ import AppCustomSelect, {
 import apiRequestService from '../../service/api-request-service';
 import { CreateMemberBody } from '../../types/api_send/CreateMemberBody';
 import handleInputValue from '../../utils/handleInputValue';
+import calculationService from '../../service/calculation-service';
 
 export function PaymentSuggestionsPage() {
   const { groupName } = useParams<InsideGroupPageParams>();
@@ -33,6 +35,14 @@ export function PaymentSuggestionsPage() {
       .catch((err) => navigate('/'));
     return null;
   }
+
+  const flatExpenses = calculationService.getGroupFlatExpenses(currentGroup);
+  const memberBalances = calculationService.getGroupMembersBalance(
+    currentGroup,
+    flatExpenses,
+  );
+  const paymentSuggestions =
+    calculationService.getPaymentSuggestions(memberBalances);
 
   const handleGoBackClick = () => navigate(`/${groupName}`);
 
@@ -47,12 +57,30 @@ export function PaymentSuggestionsPage() {
               </h1>
             </div>
             <div className="PaymentSuggestionsPage__section-body">
-              {['hola', 'adios'].map((thing, idx) => (
+              {paymentSuggestions.map((thing, idx) => (
                 <div
                   className="PaymentSuggestionsPage__payment-suggestion"
                   key={idx}
                 >
-                  {thing}
+                  <div
+                    className={`PaymentSuggestionsPage__payment-suggestion__part PaymentSuggestionsPage__payment-suggestion__part--from`}
+                  >
+                    {thing.from.name}
+                  </div>
+                  <div className="PaymentSuggestionsPage__payment-suggestion__transfer">
+                    <img src={customTransferArrowSvg} alt="" />
+                    <div className="PaymentSuggestionsPage__payment-suggestion__amount">
+                      {thing.amount.toLocaleString('es-ES', {
+                        maximumFractionDigits: 2,
+                        style: 'currency',
+                        currency: 'eur',
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="PaymentSuggestionsPage__payment-suggestion__part PaymentSuggestionsPage__payment-suggestion__part--to">
+                    {thing.to.name}
+                  </div>
                 </div>
               ))}
             </div>
