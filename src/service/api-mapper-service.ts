@@ -1,38 +1,38 @@
 import { ApiGroup } from '../types/api/ApiGroup';
+import { ApiMember } from '../types/api/ApiMember';
+import { ApiExpense } from '../types/api/ApiExpense';
 import { Group } from '../types/Group';
-import { ApiGroupExpense } from '../types/api/ApiGroupExpense';
-import { GroupExpense } from '../types/GroupExpense';
-import { ApiGroupMember } from '../types/api/ApiGroupMember';
-import { GroupMember } from '../types/GroupMember';
+import { Member } from '../types/Member';
+import { Expense } from '../types/Expense';
 
-const mapApiGroupExpense = ({
-  ...apiGroupExpenseRest
-}: ApiGroupExpense): GroupExpense => ({
+const mapApiExpense = ({ ...apiGroupExpenseRest }: ApiExpense): Expense => ({
   ...apiGroupExpenseRest,
   createdAtDate: new Date(apiGroupExpenseRest.createdAt),
   expenseAtDate: new Date(apiGroupExpenseRest.expenseAt),
 });
 
-const mapApiGroupMember = ({
-  expenses: apiGroupExpenses,
+const mapApiMember = ({
+  expenses: apiExpenses,
   ...apiGroupMemberRest
-}: ApiGroupMember): GroupMember => ({
-  ...apiGroupMemberRest,
-  expenses: apiGroupExpenses.map(mapApiGroupExpense),
-  createdAtDate: new Date(apiGroupMemberRest.createdAt),
-});
+}: ApiMember): Member => {
+  return {
+    ...apiGroupMemberRest,
+    expenses: apiExpenses.map(mapApiExpense),
+    createdAtDate: new Date(apiGroupMemberRest.createdAt),
+  };
+};
 
 const mapApiGroup = ({
-  friends: apiGroupFriends,
+  friends: apiFriends,
   ...apiGroupRest
 }: ApiGroup): Group => ({
   ...apiGroupRest,
-  friends: apiGroupFriends.map(mapApiGroupMember),
+  friends: apiFriends.map(mapApiMember),
   createdAtDate: new Date(apiGroupRest.createdAt),
 });
 
 export default {
   mapApiGroup,
-  mapApiGroupMember,
-  mapApiGroupExpense,
+  mapApiMember,
+  mapApiExpense,
 };

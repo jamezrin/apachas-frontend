@@ -1,6 +1,6 @@
-import { ApiGroupMember } from './ApiGroupMember';
+import { ApiMember } from './ApiMember';
 
-export interface ApiGroup<M extends ApiGroupMember = ApiGroupMember> {
+export interface ApiGroup<M extends ApiMember = ApiMember> {
   id: number;
   name: string;
   friends: M[];

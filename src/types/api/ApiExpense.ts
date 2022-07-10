@@ -1,4 +1,4 @@
-export interface ApiGroupExpense {
+export interface ApiExpense {
   id: number;
   amount: number;
   description: string;

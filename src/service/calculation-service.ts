@@ -1,22 +1,51 @@
 import { ApiGroup } from '../types/api/ApiGroup';
-import { ApiGroupExpense } from '../types/api/ApiGroupExpense';
+import { ApiExpense } from '../types/api/ApiExpense';
 import { Group } from '../types/Group';
-import { GroupExpense } from '../types/GroupExpense';
-import { FlatMemberExpense } from '../types/FlatMemberExpense';
+import { Expense } from '../types/Expense';
+import { FlatMemberExpense } from '../types/derived/FlatMemberExpense';
+import { MemberBalance } from '../types/derived/MemberBalance';
+import { Member } from '../types/Member';
 
-function getFlatSortedExpenses(group: Group): FlatMemberExpense[] {
-  return group.friends
-    .flatMap((member) =>
-      member.expenses.map((expense) => ({
-        ...expense,
-        member,
-      })),
-    )
-    .sort((a, b) => {
-      return b.expenseAtDate.getTime() - a.expenseAtDate.getTime();
-    });
+function getMemberFlatExpenses(member: Member): FlatMemberExpense[] {
+  return member.expenses.map((expense) => ({
+    ...expense,
+    member,
+  }));
+}
+
+function getGroupFlatExpenses(group: Group): FlatMemberExpense[] {
+  return group.friends.flatMap((member) => getMemberFlatExpenses(member));
+}
+
+function getSortedFlatExpenses(
+  flatMemberExpenses: FlatMemberExpense[],
+): FlatMemberExpense[] {
+  return flatMemberExpenses.sort((a, b) => {
+    return b.expenseAtDate.getTime() - a.expenseAtDate.getTime();
+  });
+}
+
+function getExpenseTotal(expenses: Expense[]): number {
+  return expenses.reduce((acc, cur) => acc + cur.amount, 0);
+}
+
+function getGroupMembersBalance(
+  group: Group,
+  groupFlatExpenses: FlatMemberExpense[],
+): MemberBalance[] {
+  const totalExpenses = getExpenseTotal(groupFlatExpenses);
+  const perMemberTarget = totalExpenses / group.friends.length;
+
+  return group.friends.map((member) => ({
+    balance: getExpenseTotal(member.expenses) - perMemberTarget,
+    member,
+  }));
 }
 
 export default {
-  getFlatSortedExpenses,
+  getGroupFlatExpenses,
+  getMemberFlatExpenses,
+  getSortedFlatExpenses,
+  getExpenseTotal,
+  getGroupMembersBalance,
 };
