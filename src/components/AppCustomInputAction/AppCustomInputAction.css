@@ -1,4 +1,4 @@
-.AppTextInputAction .AppButton {
+.AppCustomInputAction .AppCustomButton {
     height: var(--app-text-input-height);
     width: var(--app-text-input-height);
 

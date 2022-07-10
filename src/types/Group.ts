@@ -1,4 +1,4 @@
-import { ApiGroup } from './api/ApiGroup';
+import { ApiGroup } from './api_receive/ApiGroup';
 import { Member } from './Member';
 import { FlatMemberExpense } from './derived/FlatMemberExpense';
 

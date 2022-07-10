@@ -2,7 +2,7 @@
     --app-button-height: 30px;
 }
 
-.AppButton {
+.AppCustomButton {
     background: var(--color-primary);
 
     display: flex;
@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 
-.AppButton:disabled {
+.AppCustomButton:disabled {
     cursor: not-allowed;
 }
 

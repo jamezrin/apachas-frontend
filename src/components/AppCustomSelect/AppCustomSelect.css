@@ -1,0 +1,15 @@
+:root {
+    --app-select-input-height: 40px;
+}
+
+.AppCustomSelect {
+    height: var(--app-select-input-height);
+
+    background: var(--color-slate-light);
+    padding: 0 calc(var(--app-text-input-height) * 0.3);
+    font-size: calc(var(--app-text-input-height) * 0.45);
+    font-family: var(--brand-font);
+
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { ApiGroup } from '../types/api/ApiGroup';
-import { ApiMember } from '../types/api/ApiMember';
-import { ApiExpense } from '../types/api/ApiExpense';
+import { ApiGroup } from '../types/api_receive/ApiGroup';
+import { ApiMember } from '../types/api_receive/ApiMember';
+import { ApiExpense } from '../types/api_receive/ApiExpense';
 import mapperService from '../service/api-mapper-service';
 
 describe('api mapper service', () => {

@@ -1,4 +1,4 @@
-import './AppTextInput.css';
+import './AppCustomInput.css';
 import {
   ChangeEventHandler,
   createContext,
@@ -8,21 +8,21 @@ import {
   PropsWithChildren,
 } from 'react';
 
-type AdditionalAppTextInputProps = {
+type AdditionalAppCustomInputProps = {
   onPressEnter?: KeyboardEventHandler<HTMLInputElement>;
 };
 
-type AppTextInputProps = DetailedHTMLProps<
+type AppCustomInputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > &
-  AdditionalAppTextInputProps;
+  AdditionalAppCustomInputProps;
 
-export const AppTextInputContext = createContext<AppTextInputProps | undefined>(
-  undefined,
-);
+export const AppCustomInputContext = createContext<
+  AppCustomInputProps | undefined
+>(undefined);
 
-const AppTextInput = (props: AppTextInputProps) => {
+const AppCustomInput = (props: AppCustomInputProps) => {
   const { children, onPressEnter, onKeyDown, ...restProps } = props;
 
   const handleOnKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
@@ -34,17 +34,17 @@ const AppTextInput = (props: AppTextInputProps) => {
   };
 
   return (
-    <AppTextInputContext.Provider value={props}>
-      <div className="AppTextInput">
+    <AppCustomInputContext.Provider value={props}>
+      <div className="AppCustomInput">
         <input
-          className="AppTextInput__input"
+          className="AppCustomInput__input"
           onKeyDown={handleOnKeyDown}
           {...restProps}
         />
-        <div className="AppTextInput__actions">{children}</div>
+        <div className="AppCustomInput__actions">{children}</div>
       </div>
-    </AppTextInputContext.Provider>
+    </AppCustomInputContext.Provider>
   );
 };
 
-export default AppTextInput;
+export default AppCustomInput;

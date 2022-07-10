@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { ApiGroup } from '../types/api/ApiGroup';
+import { ApiGroup } from '../types/api_receive/ApiGroup';
 import { Group } from '../types/Group';
 import calculationService from '../service/calculation-service';
 import mapperService from '../service/api-mapper-service';

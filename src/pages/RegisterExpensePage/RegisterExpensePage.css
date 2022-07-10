@@ -2,15 +2,89 @@
     height: 100vh;
 
     display: grid;
-
 }
 
 .RegisterPaymentPage__container {
-    margin: 1rem;
+    margin: 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterPaymentPage__content {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterPaymentPage__content > * {
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterPaymentPage__actions {
+    margin-top: 2rem;
+    align-self: center;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .RegisterPaymentPage__actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 800px) {
-    .RegisterPaymentPage {
-        place-items: center;
+    .RegisterPaymentPage__container {
+        background: none;
+        padding: 0;
     }
+
+    .RegisterPaymentPage__content {
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+.RegisterPaymentPage__container {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.RegisterPaymentPage__section-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.RegisterPaymentPage__section-title {
+    font-family: var(--brand-font);
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 24px;
+}
+
+.RegisterPaymentPage__section-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterPaymentPage__field-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterPaymentPage__field-wrapper + .RegisterPaymentPage__field-wrapper {
+    margin-top: 1rem;
+}
+
+.RegisterPaymentPage__field-wrapper .AppCustomSelect {
+    flex-grow: 1;
 }

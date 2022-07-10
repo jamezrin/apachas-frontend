@@ -40,7 +40,7 @@ export const GroupContextProvider: React.FC<React.PropsWithChildren<any>> = ({
     if (!currentGroup)
       throw new Error('Cannot reload group with no group loaded');
 
-    return await apiService.fetchGroupByName(currentGroup.name);
+    return await loadGroup(currentGroup.name);
   };
 
   const createNewGroup = async (): Promise<Group> => {

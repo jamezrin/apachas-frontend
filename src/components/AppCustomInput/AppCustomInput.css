@@ -2,7 +2,7 @@
     --app-text-input-height: 40px;
 }
 
-.AppTextInput {
+.AppCustomInput {
     height: var(--app-text-input-height);
 
     overflow: hidden;
@@ -14,7 +14,7 @@
     border-radius: 4px;
 }
 
-.AppTextInput__input {
+.AppCustomInput__input {
     flex-grow: 1;
     background: var(--color-slate-light);
     padding: 0 calc(var(--app-text-input-height) * 0.3);
@@ -23,7 +23,7 @@
     border: 0;
 }
 
-.AppTextInput__actions {
+.AppCustomInput__actions {
     display: flex;
     flex-direction: row;
 }

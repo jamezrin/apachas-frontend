@@ -13,11 +13,11 @@ import createGroupSvg from '../../assets/create-group-svgrepo-com.svg';
 import coffeeWithFriendsSvg from '../../assets/undraw_coffee_with_friends_3cbj.svg';
 import { GroupContext } from '../../context/GroupContext';
 import { useNavigate } from 'react-router-dom';
-import { ApiError } from '../../types/api/ApiError';
+import { ApiError } from '../../types/api_receive/ApiError';
 import delay from '../../utils/delay';
-import { ApiGroup } from '../../types/api/ApiGroup';
-import AppTextInputAction from '../../components/AppTextInputAction/AppTextInputAction';
-import AppTextInput from '../../components/AppTextInput/AppTextInput';
+import { ApiGroup } from '../../types/api_receive/ApiGroup';
+import AppCustomInputAction from '../../components/AppCustomInputAction/AppCustomInputAction';
+import AppCustomInput from '../../components/AppCustomInput/AppCustomInput';
 
 export function CreateGroupPage() {
   const [groupName, setGroupName] = useState<string | undefined>(undefined);
@@ -97,7 +97,7 @@ export function CreateGroupPage() {
           <h3 className="CreateGroupPage__actions__cta">
             Introduce el código del grupo. Si no tienes uno, genera uno nuevo
           </h3>
-          <AppTextInput
+          <AppCustomInput
             value={groupName || ''}
             onClick={handleGroupInputTouch}
             onChange={handleGroupNameChange}
@@ -106,23 +106,23 @@ export function CreateGroupPage() {
             disabled={groupInputDisabled}
             placeholder="Introduce el id del grupo"
           >
-            <AppTextInputAction onClick={handleJoinGroupButton}>
+            <AppCustomInputAction onClick={handleJoinGroupButton}>
               <img
                 src={enterIconSvg}
                 alt="Enter specified group button"
                 height="24px"
                 width="24px"
               />
-            </AppTextInputAction>
-            <AppTextInputAction onClick={handleCreateGroupButton}>
+            </AppCustomInputAction>
+            <AppCustomInputAction onClick={handleCreateGroupButton}>
               <img
                 src={createGroupSvg}
                 alt="Create new group button"
                 height="24px"
                 width="24px"
               />
-            </AppTextInputAction>
-          </AppTextInput>
+            </AppCustomInputAction>
+          </AppCustomInput>
           {errorMessage && (
             <p className="CreateGroupPage__actions__error">{errorMessage}</p>
           )}

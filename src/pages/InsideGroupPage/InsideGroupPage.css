@@ -92,6 +92,12 @@
     justify-content: space-between;
 }
 
+.InsideGroupPage__section-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .InsideGroupPage__expense {
     padding: 0.75rem;
     background: var(--color-slate-light);
@@ -108,8 +114,12 @@
 
 .InsideGroupPage__expense__amount {
     font-size: 20px;
-    text-align: right;
+
     color: var(--color-green);
+}
+
+.InsideGroupPage__expense__amount, .InsideGroupPage__expense__date {
+    text-align: right;
 }
 
 .InsideGroupPage__section--empty {
