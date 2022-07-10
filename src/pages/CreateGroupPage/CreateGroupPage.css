@@ -2,23 +2,17 @@
     height: 100vh;
 
     display: grid;
-    place-items: center;
+
 }
 
 .CreateGroupPage__container {
-    /**/
-}
-
-@media (max-width: 800px) {
-    .CreateGroupPage__container {
-        height: 85vh;
-    }
-}
-
-.CreateGroupPage__wrapper {
-    display: grid;
-    place-items: center;
     margin: 1rem;
+}
+
+@media (min-width: 800px) {
+    .CreateGroupPage {
+        place-items: center;
+    }
 }
 
 .CreateGroupPage__heading, .CreateGroupPage__actions {

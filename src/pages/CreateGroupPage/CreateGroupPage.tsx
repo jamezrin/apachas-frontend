@@ -80,54 +80,52 @@ export function CreateGroupPage() {
   return (
     <div className="CreateGroupPage">
       <section className="CreateGroupPage__container">
-        <div className="CreateGroupPage__wrapper">
-          <div className="CreateGroupPage__heading">
-            <h1 className="CreateGroupPage__title">¡A pachas!</h1>
-            <img
-              src={coffeeWithFriendsSvg}
-              alt="Some friends drinking coffee"
-              className="CreateGroupPage__image"
-            />
-            <h2 className="CreateGroupPage__subtitle">
-              Olvídate de calcular los gastos de tu grupo de amigos.
-              <br />
-              ¡Esta aplicación lo hace por ti!
-            </h2>
-          </div>
-          <div className="CreateGroupPage__actions">
-            <h3 className="CreateGroupPage__actions__cta">
-              Introduce el código del grupo. Si no tienes uno, genera uno nuevo
-            </h3>
-            <AppTextInput
-              value={groupName || ''}
-              onClick={handleGroupInputTouch}
-              onChange={handleGroupNameChange}
-              onPressEnter={handleJoinGroupButton}
-              size={10}
-              disabled={groupInputDisabled}
-              placeholder="Introduce el id del grupo"
-            >
-              <AppTextInputAction onClick={handleJoinGroupButton}>
-                <img
-                  src={enterIconSvg}
-                  alt="Enter specified group button"
-                  height="24px"
-                  width="24px"
-                />
-              </AppTextInputAction>
-              <AppTextInputAction onClick={handleCreateGroupButton}>
-                <img
-                  src={createGroupSvg}
-                  alt="Create new group button"
-                  height="24px"
-                  width="24px"
-                />
-              </AppTextInputAction>
-            </AppTextInput>
-            {errorMessage && (
-              <p className="CreateGroupPage__actions__error">{errorMessage}</p>
-            )}
-          </div>
+        <div className="CreateGroupPage__heading">
+          <h1 className="CreateGroupPage__title">¡A pachas!</h1>
+          <img
+            src={coffeeWithFriendsSvg}
+            alt="Some friends drinking coffee"
+            className="CreateGroupPage__image"
+          />
+          <h2 className="CreateGroupPage__subtitle">
+            Olvídate de calcular los gastos de tu grupo de amigos.
+            <br />
+            ¡Esta aplicación lo hace por ti!
+          </h2>
+        </div>
+        <div className="CreateGroupPage__actions">
+          <h3 className="CreateGroupPage__actions__cta">
+            Introduce el código del grupo. Si no tienes uno, genera uno nuevo
+          </h3>
+          <AppTextInput
+            value={groupName || ''}
+            onClick={handleGroupInputTouch}
+            onChange={handleGroupNameChange}
+            onPressEnter={handleJoinGroupButton}
+            size={10}
+            disabled={groupInputDisabled}
+            placeholder="Introduce el id del grupo"
+          >
+            <AppTextInputAction onClick={handleJoinGroupButton}>
+              <img
+                src={enterIconSvg}
+                alt="Enter specified group button"
+                height="24px"
+                width="24px"
+              />
+            </AppTextInputAction>
+            <AppTextInputAction onClick={handleCreateGroupButton}>
+              <img
+                src={createGroupSvg}
+                alt="Create new group button"
+                height="24px"
+                width="24px"
+              />
+            </AppTextInputAction>
+          </AppTextInput>
+          {errorMessage && (
+            <p className="CreateGroupPage__actions__error">{errorMessage}</p>
+          )}
         </div>
       </section>
     </div>
