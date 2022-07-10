@@ -15,7 +15,11 @@ export function InsideGroupPage() {
 
   if (!currentGroup) loadGroup(groupName!!).then((_) => {});
 
-  return <h1>InsideGroupPage {groupName}</h1>;
+  return (
+    <div className="InsideGroupPage">
+      <div className="InsideGroupPage__container"></div>
+    </div>
+  );
 }
 
 export default InsideGroupPage;

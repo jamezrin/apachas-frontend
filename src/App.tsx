@@ -13,6 +13,18 @@ function App() {
           <Routes>
             <Route path="/" element={<CreateGroupPage />} />
             <Route path="/:groupName" element={<InsideGroupPage />} />
+            <Route
+              path="/:groupName/create_friend"
+              element={<InsideGroupPage />}
+            />
+            <Route
+              path="/:groupName/register_expense"
+              element={<InsideGroupPage />}
+            />
+            <Route
+              path="/:groupName/payment_suggestions"
+              element={<InsideGroupPage />}
+            />
           </Routes>
         </BrowserRouter>
       </AppWrapper>

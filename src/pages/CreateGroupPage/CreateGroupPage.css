@@ -5,12 +5,12 @@
     place-items: center;
 }
 
-.CreateGroupPage__section {
-
+.CreateGroupPage__container {
+    /**/
 }
 
 @media (max-width: 800px) {
-    .CreateGroupPage__section {
+    .CreateGroupPage__container {
         height: 85vh;
     }
 }

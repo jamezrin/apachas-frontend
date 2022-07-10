@@ -79,7 +79,7 @@ export function CreateGroupPage() {
 
   return (
     <div className="CreateGroupPage">
-      <section className="CreateGroupPage__section">
+      <section className="CreateGroupPage__container">
         <div className="CreateGroupPage__wrapper">
           <div className="CreateGroupPage__heading">
             <h1 className="CreateGroupPage__title">¡A pachas!</h1>
