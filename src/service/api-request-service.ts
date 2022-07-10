@@ -4,40 +4,9 @@ import { CreateExpenseBody } from '../types/api_send/CreateExpenseBody';
 import { CreateMemberBody } from '../types/api_send/CreateMemberBody';
 import { ApiError } from '../types/api_receive/ApiError';
 import { ApiGroup } from '../types/api_receive/ApiGroup';
+import betterFetch from '../utils/betterFetch';
 
 export const BACKEND_BASE_URL: string = import.meta.env.VITE_BACKEND_BASE_URL;
-
-interface BetterResponse<T = any> extends Response {
-  data: T | any;
-}
-
-function betterFetch<T = any>(
-  input: RequestInfo | URL,
-  init?: RequestInit,
-): Promise<BetterResponse<T>> {
-  return new Promise((resolve, reject) => {
-    fetch(input, init).then(async (response) => {
-      const requestClone = response.clone() as BetterResponse<T>;
-
-      const contentType = requestClone.headers.get('Content-Type');
-
-      Object.assign(requestClone, {
-        data: await (async () => {
-          switch (contentType) {
-            case 'application/json':
-              return await requestClone.json();
-            case 'text/plain':
-              return await requestClone.text();
-          }
-
-          return null;
-        })(),
-      });
-
-      response.ok ? resolve(requestClone) : reject(requestClone);
-    });
-  });
-}
 
 async function fetchGroupByName(name: string): Promise<Group> {
   const url = BACKEND_BASE_URL + `/groups/${name}`;
