@@ -112,6 +112,14 @@ describe('calculation service', () => {
     const paymentSuggestions =
       calculationService.getPaymentSuggestions(membersBalances);
 
+    console.log(
+      paymentSuggestions.map((suggestion) => ({
+        amount: suggestion.amount,
+        from: suggestion.from.name,
+        to: suggestion.to.name,
+      })),
+    );
+
     expect(paymentSuggestions.length).eq(3);
 
     expect(paymentSuggestions[0].from.id).eq(20);
