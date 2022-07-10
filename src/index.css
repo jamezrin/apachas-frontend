@@ -30,5 +30,6 @@ body, html {
   --color-green: #15803d;
   --color-slate-hard: #E2E8F0;
   --color-slate-light: #F1F5F9;
+  --color-gray-hard: #9ca3af;
   --brand-font: 'Montserrat', 'montserrat', 'Source Sans', 'Helvetica Neue', Helvetica, 'Arial Black', Arial, sans-serif;
 }

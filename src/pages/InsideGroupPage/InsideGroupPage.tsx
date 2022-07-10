@@ -54,7 +54,10 @@ export function InsideGroupPage() {
           <section className="InsideGroupPage__expenses-container">
             <div className="InsideGroupPage__section-heading">
               <h1 className="InsideGroupPage__section-title">Gastos</h1>
-              <AppCustomButton onClick={handleRegisterExpenseClick}>
+              <AppCustomButton
+                onClick={handleRegisterExpenseClick}
+                disabled={!currentGroup?.friends.length}
+              >
                 <img
                   src={paymentSvg}
                   alt="Icon indicating the button to add an expense"
@@ -159,6 +162,7 @@ export function InsideGroupPage() {
           </AppCustomButton>
           <AppCustomButton
             onClick={handlePaymentSuggestionsClick}
+            disabled={!currentGroup?.friends.length}
             className="AppCustomButton AppCustomButton--lg"
           >
             <img

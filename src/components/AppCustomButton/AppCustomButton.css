@@ -22,6 +22,8 @@
 }
 
 .AppCustomButton:disabled {
+    background: var(--color-gray-hard);
+    color: var(--color-white);
     cursor: not-allowed;
 }
 
