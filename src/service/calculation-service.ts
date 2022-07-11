@@ -101,10 +101,39 @@ function getPaymentSuggestions(
   return paymentSuggestions;
 }
 
+function calculateRelativeTimeDiff(from: Date, to: Date): string {
+  let diff = Math.abs(from.getTime() - to.getTime());
+
+  const seconds = Math.floor(diff / 1000);
+  const minutes = seconds && Math.floor(seconds / 60);
+  const hours = minutes && Math.floor(minutes / 60);
+  const days = hours && Math.floor(hours / 24);
+
+  if (hours >= 24) return `${days} dia${days === 1 ? '' : 's'}`;
+  if (minutes >= 60) return `${hours} hora${hours === 1 ? '' : 's'}`;
+  if (seconds >= 60) return `${minutes} minuto${minutes === 1 ? '' : 's'}`;
+  return `${seconds} segundo${seconds === 1 ? '' : 's'}`;
+}
+
+const dateTimeFormat = new Intl.DateTimeFormat('es-ES', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+});
+
+function getExpenseDateText(expense: Expense): string {
+  const expenseDate = expense.expenseAtDate;
+  const expenseAtDateText = dateTimeFormat.format(expenseDate);
+  const relativeTimeDiff = calculateRelativeTimeDiff(new Date(), expenseDate);
+
+  return `${expenseAtDateText} (hace ${relativeTimeDiff})`;
+}
+
 export default {
   getGroupFlatExpenses,
   getMemberFlatExpenses,
+  calculateRelativeTimeDiff,
   getSortedFlatExpenses,
+  getExpenseDateText,
   getExpenseTotal,
   getGroupMembersBalance,
   getPaymentSuggestions,

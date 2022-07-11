@@ -11,11 +11,6 @@ import './InsideGroupPage.css';
 import calculationService from '../../service/calculation-service';
 import AppCustomButton from '../../components/AppCustomButton/AppCustomButton';
 
-const dateTimeFormat = new Intl.DateTimeFormat('es-ES', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-});
-
 export type InsideGroupPageParams = {
   groupName: string;
 };
@@ -100,7 +95,7 @@ export function InsideGroupPage() {
                     {expense.description}
                   </span>
                   <span className="InsideGroupPage__expense__date">
-                    {dateTimeFormat.format(expense.expenseAtDate)}
+                    {calculationService.getExpenseDateText(expense)}
                   </span>
                 </div>
               ))}
