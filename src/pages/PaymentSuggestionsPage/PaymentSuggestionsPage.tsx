@@ -1,39 +1,24 @@
-import {
-  ChangeEventHandler,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { useContext } from 'react';
 
 import './PaymentSuggestionsPage.css';
 import { GroupContext } from '../../context/GroupContext';
 import { useNavigate, useParams } from 'react-router-dom';
-import AppCustomInput from '../../components/AppCustomInput/AppCustomInput';
 import AppCustomButton from '../../components/AppCustomButton/AppCustomButton';
-import addSvg from '../../assets/add-svgrepo-com.svg';
 import backSvg from '../../assets/back-svgrepo-com.svg';
 import customTransferArrowSvg from '../../assets/custom-transfer-arrow.svg';
 import { InsideGroupPageParams } from '../InsideGroupPage/InsideGroupPage';
-import AppCustomSelect, {
-  AppSelectOption,
-} from '../../components/AppCustomSelect/AppCustomSelect';
-import apiRequestService from '../../service/api-request-service';
-import { CreateMemberBody } from '../../types/api_send/CreateMemberBody';
-import handleInputValue from '../../utils/handleInputValue';
 import calculationService from '../../service/calculation-service';
 
 export function PaymentSuggestionsPage() {
   const { groupName } = useParams<InsideGroupPageParams>();
-  const { currentGroup, loadGroup, reloadGroup } = useContext(GroupContext);
+  const { currentGroup, loadGroup } = useContext(GroupContext);
   const navigate = useNavigate();
 
   if (!currentGroup) {
     if (loadGroup && groupName) {
       loadGroup(groupName)
-        .then((_) => {})
-        .catch((err) => navigate('/'));
+        .then(() => {})
+        .catch(() => navigate('/'));
     }
 
     return null;

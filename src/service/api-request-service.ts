@@ -2,7 +2,6 @@ import apiMapperService from './api-mapper-service';
 import { Group } from '../types/Group';
 import { CreateExpenseBody } from '../types/api_send/CreateExpenseBody';
 import { CreateMemberBody } from '../types/api_send/CreateMemberBody';
-import { ApiError } from '../types/api_receive/ApiError';
 import { ApiGroup } from '../types/api_receive/ApiGroup';
 import betterFetch from '../utils/betterFetch';
 

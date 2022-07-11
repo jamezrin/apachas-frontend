@@ -1,11 +1,4 @@
-import {
-  ChangeEventHandler,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './RegisterExpensePage.css';
 import { GroupContext } from '../../context/GroupContext';
@@ -65,8 +58,8 @@ export function RegisterExpensePage() {
   if (!currentGroup) {
     if (loadGroup && groupName) {
       loadGroup(groupName)
-        .then((_) => {})
-        .catch((err) => navigate('/'));
+        .then(() => {})
+        .catch(() => navigate('/'));
     }
     return null;
   }

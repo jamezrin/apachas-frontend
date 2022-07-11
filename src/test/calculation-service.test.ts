@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import { ApiGroup } from '../types/api_receive/ApiGroup';
 import calculationService from '../service/calculation-service';
 import mapperService from '../service/api-mapper-service';
-import { MemberBalance } from '../types/derived/MemberBalance';
 
 const sampleApiGroup: ApiGroup = {
   id: 7,

@@ -1,11 +1,4 @@
-import {
-  ChangeEventHandler,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './CreateFriendPage.css';
 import { GroupContext } from '../../context/GroupContext';
@@ -15,9 +8,6 @@ import AppCustomButton from '../../components/AppCustomButton/AppCustomButton';
 import addSvg from '../../assets/add-svgrepo-com.svg';
 import backSvg from '../../assets/back-svgrepo-com.svg';
 import { InsideGroupPageParams } from '../InsideGroupPage/InsideGroupPage';
-import AppCustomSelect, {
-  AppSelectOption,
-} from '../../components/AppCustomSelect/AppCustomSelect';
 import apiRequestService from '../../service/api-request-service';
 import { CreateMemberBody } from '../../types/api_send/CreateMemberBody';
 import handleInputValue from '../../utils/handleInputValue';
@@ -44,8 +34,8 @@ export function CreateFriendPage() {
   if (!currentGroup) {
     if (loadGroup && groupName) {
       loadGroup(groupName)
-        .then((_) => {})
-        .catch((err) => navigate('/'));
+        .then(() => {})
+        .catch(() => navigate('/'));
     }
 
     return null;
