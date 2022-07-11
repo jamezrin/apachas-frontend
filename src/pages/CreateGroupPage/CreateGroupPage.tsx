@@ -44,7 +44,7 @@ export function CreateGroupPage() {
     setGroupName(group.name);
 
     // artificial delay, because looks cooler
-    delay(600).then(() => {
+    delay(500).then(() => {
       navigate(`/${group.name}`);
     });
   };
