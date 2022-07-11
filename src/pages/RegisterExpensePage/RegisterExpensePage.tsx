@@ -28,6 +28,7 @@ export function RegisterExpensePage() {
   const canAddExpense = !!(
     selectedMemberId &&
     expenseAmount &&
+    expenseAmount > 0 &&
     expenseAtDate &&
     expenseConcept
   );
@@ -109,6 +110,7 @@ export function RegisterExpensePage() {
                   type="number"
                   value={expenseAmount || ''}
                   onChange={handleInputValue(setExpenseAmount)}
+                  min="0"
                   step="any"
                 />
               </div>
