@@ -136,65 +136,72 @@ describe('calculation service', () => {
 
   describe('calculates relative time diff correctly', () => {
     it('for seconds', () => {
-      const from = new Date('2022-01-12T23:23:00');
-      const to = new Date('2022-01-12T23:23:20');
+      const from = new Date('2022-01-12T23:23:20');
+      const to = new Date('2022-01-12T23:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('20 segundos');
+      expect(diffText).eq('hace 20 segundos');
     });
 
     it('for one second', () => {
-      const from = new Date('2022-01-12T23:23:00');
-      const to = new Date('2022-01-12T23:23:01');
+      const from = new Date('2022-01-12T23:23:01');
+      const to = new Date('2022-01-12T23:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('1 segundo');
+      expect(diffText).eq('hace 1 segundo');
     });
 
     it('for minutes', () => {
-      const from = new Date('2022-01-12T23:23:00');
-      const to = new Date('2022-01-12T23:48:20');
+      const from = new Date('2022-01-12T23:48:20');
+      const to = new Date('2022-01-12T23:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('25 minutos');
+      expect(diffText).eq('hace 25 minutos');
     });
 
     it('for one minute', () => {
       const from = new Date('2022-01-12T23:23:00');
       const to = new Date('2022-01-12T23:22:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('1 minuto');
+      expect(diffText).eq('hace 1 minuto');
     });
 
     it('for hours', () => {
       const from = new Date('2022-01-12T23:23:00');
       const to = new Date('2022-01-12T10:48:20');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('12 horas');
+      expect(diffText).eq('hace 12 horas');
     });
 
     it('for one hour', () => {
       const from = new Date('2022-01-12T23:23:00');
       const to = new Date('2022-01-12T22:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('1 hora');
+      expect(diffText).eq('hace 1 hora');
     });
 
     it('for days', () => {
-      const from = new Date('2022-01-12T23:23:00');
-      const to = new Date('2022-01-14T23:23:00');
+      const from = new Date('2022-01-14T23:23:00');
+      const to = new Date('2022-01-12T23:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('2 dias');
+      expect(diffText).eq('hace 2 dias');
     });
 
     it('for one day', () => {
-      const from = new Date('2022-01-12T23:23:00');
-      const to = new Date('2022-01-13T23:23:00');
+      const from = new Date('2022-01-13T23:23:00');
+      const to = new Date('2022-01-12T23:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, to);
-      expect(diffText).eq('1 dia');
+      expect(diffText).eq('hace 1 dia');
     });
 
     it('for exact same date', () => {
       const from = new Date('2022-01-12T22:23:00');
       const diffText = calculationService.calculateRelativeTimeDiff(from, from);
-      expect(diffText).eq('0 segundos');
+      expect(diffText).eq('hace 0 segundos');
+    });
+
+    it('for a date in the future', () => {
+      const from = new Date('2022-01-12T23:23:00');
+      const to = new Date('2022-01-14T23:23:00');
+      const diffText = calculationService.calculateRelativeTimeDiff(from, to);
+      expect(diffText).eq('en 2 dias');
     });
   });
 });

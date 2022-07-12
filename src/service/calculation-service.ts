@@ -101,10 +101,8 @@ function getPaymentSuggestions(
   return paymentSuggestions;
 }
 
-function calculateRelativeTimeDiff(from: Date, to: Date): string {
-  let diff = Math.abs(from.getTime() - to.getTime());
-
-  const seconds = Math.floor(diff / 1000);
+function calculateRelativeTimeDiffAmount(diff: number): string {
+  const seconds = Math.floor(Math.abs(diff) / 1000);
   const minutes = seconds && Math.floor(seconds / 60);
   const hours = minutes && Math.floor(minutes / 60);
   const days = hours && Math.floor(hours / 24);
@@ -113,6 +111,12 @@ function calculateRelativeTimeDiff(from: Date, to: Date): string {
   if (minutes >= 60) return `${hours} hora${hours === 1 ? '' : 's'}`;
   if (seconds >= 60) return `${minutes} minuto${minutes === 1 ? '' : 's'}`;
   return `${seconds} segundo${seconds === 1 ? '' : 's'}`;
+}
+
+function calculateRelativeTimeDiff(from: Date, to: Date): string {
+  const diff = from.getTime() - to.getTime();
+  const diffText = calculateRelativeTimeDiffAmount(diff);
+  return `${diff >= 0 ? 'hace' : 'en'} ${diffText}`;
 }
 
 const dateTimeFormat = new Intl.DateTimeFormat('es-ES', {
@@ -125,7 +129,7 @@ function getExpenseDateText(expense: Expense): string {
   const expenseAtDateText = dateTimeFormat.format(expenseDate);
   const relativeTimeDiff = calculateRelativeTimeDiff(new Date(), expenseDate);
 
-  return `${expenseAtDateText} (hace ${relativeTimeDiff})`;
+  return `${expenseAtDateText} (${relativeTimeDiff})`;
 }
 
 export default {
