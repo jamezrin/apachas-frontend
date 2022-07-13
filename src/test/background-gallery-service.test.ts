@@ -16,16 +16,20 @@ describe('background gallery service', () => {
   });
 
   for (const backgroundId of CURATED_BACKGROUND_IDS) {
-    it(`background ${backgroundId} to work`, async () => {
-      const backgroundUrl = getBackgroundImageUrl(backgroundId);
-      //console.log(`requesting background ${backgroundId}: ${backgroundUrl}`);
+    it(
+      `background ${backgroundId} to work`,
+      async () => {
+        const backgroundUrl = getBackgroundImageUrl(backgroundId);
+        //console.log(`requesting background ${backgroundId}: ${backgroundUrl}`);
 
-      const response = await fetch(backgroundUrl, {
-        method: 'HEAD',
-      });
+        const response = await fetch(backgroundUrl, {
+          method: 'HEAD',
+        });
 
-      expect(response.status).eq(200);
-      expect(response.headers.get('content-type')).match(/^image/);
-    });
+        expect(response.status).eq(200);
+        expect(response.headers.get('content-type')).match(/^image/);
+      },
+      30 * 10000,
+    );
   }
 });
