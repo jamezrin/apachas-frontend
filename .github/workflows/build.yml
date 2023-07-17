@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: harbor.jamezrin.name
-  IMAGE_PROJECT: apachas
+  IMAGE_PROJECT: library
   IMAGE_NAME: apachas-frontend
   IMAGE_ARCH: linux/amd64,linux/arm64
 
