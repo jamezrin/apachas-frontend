@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 env:
-  REGISTRY: harbor.jamezrin.name
+  REGISTRY: harbor.jamezrin.com
   IMAGE_PROJECT: library
   IMAGE_NAME: apachas-frontend
   IMAGE_ARCH: linux/amd64,linux/arm64
@@ -48,4 +48,3 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_PROJECT }}/${{ env.IMAGE_NAME }}:${{ steps.get_version.outputs.version }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_PROJECT }}/${{ env.IMAGE_NAME }}:latest
-
